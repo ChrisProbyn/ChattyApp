@@ -9,7 +9,7 @@ export default class Message extends Component{
     }
 
     render() {
-        console.log(this.props.user)
+      
         
         return (
             
