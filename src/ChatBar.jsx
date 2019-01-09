@@ -8,6 +8,7 @@ export default class ChatBar extends Component{
             user: ""
         }
         this.currentUser = this.currentUser.bind(this)
+        this.creation = this.creation.bind(this)
     }
     currentUser(user){
         this.setState({
@@ -20,7 +21,7 @@ export default class ChatBar extends Component{
             let id = Math.floor(Math.random()*100000);
             
             const message = {
-                username: this.state.user,
+                username: this.props.user.name,
                 content: event.target.value,
                 id: id
               }
