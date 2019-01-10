@@ -10,13 +10,20 @@ export default class Message extends Component{
 
     render() {
       
+            if(this.props.type === "incomingMessage") {
+                return(
+                <div className="message">
+                    <span className="message-username">{this.props.user}</span>
+                    <span className="message-content">{this.props.text}</span>
+                </div>);
+            }else if (this.props.type === "incomingNotification"){
+           
+                return(
+                <div className="notification">
+                    <span className="notification-content">{this.props.text}</span>
+                </div>);    
+            }
+          
         
-        return (
-            
-            <div className="message">
-                <span className="message-username">{this.props.user}</span>
-                <span className="message-content">{this.props.text}</span>
-            </div>
-        )
     }
 }

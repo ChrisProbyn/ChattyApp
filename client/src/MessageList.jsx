@@ -9,7 +9,7 @@ export default class MessageList extends Component{
     render() {
         const allMessages = this.props.messages.map((message) => 
             
-           <Message key={message.id} text={message.content} user={message.username}/>
+           <Message key={message.id} text={message.content} user={message.username} type={message.type}/>
         )
      
         return (
