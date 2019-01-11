@@ -11,10 +11,7 @@ Create a config file with your firebases's project api key and other configurati
 Export your config with to App.jsx.
 
 ```
-
-
-
-Install the dependencies and start the server.
+Install the dependencies and start the server and client.
 
 ```
 npm install
