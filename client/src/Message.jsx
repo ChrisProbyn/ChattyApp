@@ -9,7 +9,7 @@ export default class Message extends Component{
     }
 
     render() {
-      
+            //will check the incoming type and render the corresponding element
             if(this.props.type === "incomingMessage") {
                 return(
                 <div className="message">
@@ -19,7 +19,7 @@ export default class Message extends Component{
             }else if (this.props.type === "incomingNotification"){
            
                 return(
-                <div className="notification">
+                <div className="notification" align="center">
                     <span className="notification-content">{this.props.text}</span>
                 </div>);    
             } else if (this.props.type === "image"){

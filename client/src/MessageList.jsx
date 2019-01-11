@@ -8,8 +8,8 @@ export default class MessageList extends Component{
     }
     
     render() {
-        const allMessages = this.props.messages.map((message) => 
-            
+        //this will map through all of the messages and build a message component for each one
+        const allMessages = this.props.messages.map((message) =>    
            <Message key={message.id} text={message.content} user={message.username} type={message.type}/>
         )
        
