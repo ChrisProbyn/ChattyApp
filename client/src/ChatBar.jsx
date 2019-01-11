@@ -35,14 +35,11 @@ export default class ChatBar extends Component{
         }
     }
     fileSelectedHandler = event => {
-        this.setState({
-            selectedFile: event.target.files[0]
-        })
-    
+        this.props.addFile(event.target.files[0])
     }
     fileUploadHandler = () => {
         //upload file
-        console.log(this.state.selectedFile)
+        // console.log(this.state.selectedFile)
     }
     render() {
         return (
@@ -50,7 +47,7 @@ export default class ChatBar extends Component{
                 <input className="chatbar-username" placeholder="Your Name (Optional)" onKeyUp={this.createUser} defaultValue={this.props.user.name} />
                 <input className="chatbar-message" placeholder="Type a message and hit ENTER" onKeyPress={this.creation}/>
                 <input type="file" onChange={this.fileSelectedHandler}/>
-                <button onClick={this.fileUploadHandler}>Upload</button>
+                <button >Upload</button>
             </footer>
         )
     }

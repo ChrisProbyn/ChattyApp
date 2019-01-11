@@ -24,10 +24,11 @@ wss.broadcast = function(data) {
   wss.clients.forEach(sock => {
     console.log("got message")
     if (sock.readyState === SocketServer.OPEN) {
-      // console.log("incoming data", data)
+      //  console.log("incoming data", data)
       // const parsedData = uuidv4()
       const parsedData = JSON.parse(data);
       const returnData = Object.assign({id:uuidv4(), clientNumber:numOfClients},parsedData);
+       console.log(returnData)
       sock.send(JSON.stringify(returnData));
     } else {
       sock.terminate();
@@ -37,7 +38,7 @@ wss.broadcast = function(data) {
 
 
 wss.on('connection', (socket, req) => {
-  console.log(wss.clients.size)
+  
   const clientConnection ={numOfClients: wss.clients.size, Type:"incomingClient", id:uuidv4()};
   socket.send(JSON.stringify(clientConnection));
   wss.broadcast(JSON.stringify(clientConnection));
@@ -47,10 +48,11 @@ wss.on('connection', (socket, req) => {
   //   socket.send(JSON.stringify(clientConnection));
   //   }
   // }
-  console.log(req.connection.remoteAddress);
+  
   socket.on('message', wss.broadcast);
   socket.on('close', () => {
     console.log('Client disconnected')
-    // socket.send(JSON.stringify(clientConnection));
+    const clientConnection ={numOfClients: wss.clients.size, Type:"incomingClient", id:uuidv4()};
+    wss.broadcast(JSON.stringify(clientConnection));
   });
 });
