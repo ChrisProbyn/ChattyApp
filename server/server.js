@@ -20,15 +20,13 @@ const wss = new SocketServer.Server({ server });
 // the ws parameter in the callback.
 wss.broadcast = function(data) {
   const numOfClients = wss.clients.size;
-  // console.log(numOfClients);
+
   wss.clients.forEach(sock => {
     console.log("got message")
     if (sock.readyState === SocketServer.OPEN) {
-      //  console.log("incoming data", data)
-      // const parsedData = uuidv4()
       const parsedData = JSON.parse(data);
       const returnData = Object.assign({id:uuidv4(), clientNumber:numOfClients},parsedData);
-       console.log(returnData)
+      
       sock.send(JSON.stringify(returnData));
     } else {
       sock.terminate();
@@ -42,12 +40,7 @@ wss.on('connection', (socket, req) => {
   const clientConnection ={numOfClients: wss.clients.size, Type:"incomingClient", id:uuidv4()};
   socket.send(JSON.stringify(clientConnection));
   wss.broadcast(JSON.stringify(clientConnection));
-  // wss.broadcast = function (data) {
-  //   wss.clients.forEach(sock => {
-  //   const clientConnection ={numOfClients: wss.clients.size, Type:"incomingClient", id:uuidv4()};
-  //   socket.send(JSON.stringify(clientConnection));
-  //   }
-  // }
+
   
   socket.on('message', wss.broadcast);
   socket.on('close', () => {
