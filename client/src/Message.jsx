@@ -31,7 +31,18 @@ export default class Message extends Component{
                  </div>   
                 
                 )
+            }else if (this.props.type === "video"){
+
+                return (
+                 
+                     <video width="320" height="240" controls>
+                        <source src={this.props.text} type="video/mp4"/>
+                    </video>
+                
+                
+                )
             }
+
           
         
     }

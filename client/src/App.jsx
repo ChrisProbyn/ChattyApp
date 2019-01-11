@@ -1,17 +1,9 @@
 import React, {Component} from 'react';
 import ChatBar from './ChatBar.jsx';
 import MessageList from './MessageList.jsx';
-// import axios from 'axios';
+import config from './FireBase.jsx';
 import firebase from "firebase";
 
-var config = {
-  apiKey: "AIzaSyDQpUqKRd5KXWptdje2nf4hwpNqwQfIP74",
-  authDomain: "chatty-app-258f6.firebaseapp.com",
-  databaseURL: "https://chatty-app-258f6.firebaseio.com",
-  projectId: "chatty-app-258f6",
-  storageBucket: "chatty-app-258f6.appspot.com",
-  messagingSenderId: "64293824832"
-};
 firebase.initializeApp(config);
 var storage = firebase.storage()
 
@@ -77,7 +69,8 @@ class App extends Component {
     var name = incomingFile.name;
     var imageRef = storageRef.child(name);
     imageRef.put(incomingFile).then((snapshot) => {
-        console.log(snapshot)
+        console.log(snapshot.metadata)
+        if(snapshot.metadata.contentType === "image/png" || snapshot.metadata.contentType === "image/jpg" ) {
         // console.log(imageRef.getDownloadURL())
         imageRef.getDownloadURL().then((url) => {
           console.log(url)
@@ -91,6 +84,20 @@ class App extends Component {
           exampleSocket.send(JSON.stringify(message))
  
         })
+      } else {
+        imageRef.getDownloadURL().then((url) => {
+          console.log(url)
+          const message = {
+            type: "video",
+            content: url,
+            username: this.state.currentUser.name
+          }
+          console.log("test ",message);
+        
+          exampleSocket.send(JSON.stringify(message))
+ 
+        })
+      }
         
      
     });

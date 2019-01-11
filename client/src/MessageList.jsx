@@ -17,7 +17,6 @@ export default class MessageList extends Component{
         return (
             <div className="messages">
                 {allMessages}
-               
             </div>
         )
     }
