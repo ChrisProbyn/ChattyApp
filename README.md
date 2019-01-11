@@ -3,6 +3,8 @@ Chatty App
 
 A React and websocket based chat app.
 
+![ChattyApp](/ChattyApp.gif?raw=true)
+
 ### Usage
 
 Clone the Files and create your own git repo.
