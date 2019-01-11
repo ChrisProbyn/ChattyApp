@@ -12,12 +12,11 @@ Export your config with to App.jsx.
 
 ```
 Install the dependencies and start the server and client.
-
 ```
 npm install
 npm start the client and server
 open http://localhost:3000
-```
+
 
 ### Static Files
 
@@ -29,9 +28,9 @@ For example, if you copy a file called my_image.png into the build folder you ca
 
 This project includes React ESLint configuration.
 
-```
+
 npm run lint
-```
+
 
 ### Dependencies
 ### SERVER 
