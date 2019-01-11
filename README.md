@@ -1,7 +1,7 @@
 Chatty App
 =====================
 
-A React and websocket based chat app.
+A single page app built with ReactJS, Webpack, Babel, Node.js, Firebase, and Web Sockets. The client-side app communicates with a server via WebSockets for multi-user real-time updates. The users can chat, change user names, and upload and post images or video. When a user posts an image or video it is uploaded to cloud storage via Firebase, and a download link is created for the other users to see the link. 
 
 ![ChattyApp](/ChattyApp.gif?raw=true)
 
