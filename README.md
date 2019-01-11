@@ -34,6 +34,10 @@ npm run lint
 
 ### Dependencies
 ### SERVER 
+* express
+* uuid
+* ws
+### Client
 * React
 * Webpack
 * Firebase
