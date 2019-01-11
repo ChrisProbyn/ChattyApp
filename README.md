@@ -9,16 +9,19 @@ A single page app built with ReactJS, Webpack, Babel, Node.js, Firebase, and Web
 
 Clone the Files and create your own git repo.
 Create a Firebase account and project folder,
-Create a config file with your firebases's project api key and other configurations
-Export your config with to App.jsx.
+Create a config file with your firebases's project api key and other configurations.
+Export your config with your information to App.jsx.
+Install the dependencies and start the server and client.
 
 ```
-Install the dependencies and start the server and client.
-```
+cd server/
+npm install
+cd ..
+cd client/
 npm install
 npm start the client and server
 open http://localhost:3000
-
+```
 
 ### Static Files
 
